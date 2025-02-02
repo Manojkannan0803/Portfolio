@@ -8,3 +8,9 @@ Python 3.x
 Matplotlib (for visualizing beliefs)
 NumPy (for matrix and grid operations)
 Random module (for simulating sensor errors)
+
+├── helpers.py         # Helper functions (normalize, blur, etc.)
+├── localizer.py       # Localization functions (sense, move, etc.)
+├── main.py            # Main simulation file
+└── README.md          # Project documentation
+
