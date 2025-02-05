@@ -1,0 +1,72 @@
+# Kalman Filter for Object Tracking
+
+## Overview
+This project implements a **Kalman Filter** to track the motion of a vehicle using simulated LiDAR measurements. The Kalman Filter estimates the vehicle's **position** and **velocity** by processing noisy sensor data while considering motion dynamics.
+
+## Features
+- **Synthetic Data Generation**: Simulates vehicle motion with acceleration, idling, and reverse driving.
+- **LiDAR Sensor Simulation**: Generates noisy distance measurements.
+- **Kalman Filter Implementation**: Applies a two-step process (prediction and update) to estimate position and velocity.
+- **Visualization**: Plots the ground truth, sensor measurements, and Kalman filter predictions.
+
+## Methodology
+### 1. **Data Generation**
+The motion of a vehicle is simulated with parameters such as:
+- Initial position and velocity
+- Deceleration rate
+- Idle time duration
+- Reverse motion duration
+- LiDAR measurement interval
+
+### 2. **Measurement Noise**
+LiDAR distance measurements include Gaussian noise to simulate real-world inaccuracies.
+
+### 3. **Kalman Filter Implementation**
+The Kalman Filter is initialized with:
+- **State Vector (x)**: Initial position and velocity
+- **Covariance Matrix (P)**: Initial uncertainty
+- **State Transition Matrix (F)**: Motion model
+- **Process Noise (Q)**: Accounts for acceleration variance
+- **Measurement Matrix (H)**: Relates state to measurements
+- **Measurement Noise (R)**: Represents sensor uncertainty
+
+#### Steps:
+1. **Prediction**: Estimates new state based on motion model.
+2. **Update**: Adjusts state based on LiDAR measurements.
+
+### 4. **Results Visualization**
+- **Position Tracking**: Compares ground truth, noisy LiDAR data, and Kalman filter estimates.
+- **Velocity Estimation**: Evaluates Kalman filter velocity predictions against ground truth.
+
+## Dependencies
+- Python 3.x
+- Pandas
+- Matplotlib
+- Custom matrix operations (matrix.py)
+- Data generation module (data_generator.py)
+
+## Running the Project
+1. Clone the repository:
+   git clone <repository-url>
+   cd <repository-name>
+
+2. Install dependencies:
+   pip install pandas matplotlib
+  
+3. Run the script:
+   python kalman_filter.py
+
+
+## Applications
+- Object tracking in autonomous vehicles
+- Sensor fusion for robotics
+- State estimation in control systems
+
+## Future Enhancements
+- Extend to **2D motion tracking** (x, y coordinates).
+- Integrate **real-world LiDAR data**.
+- Compare **Extended Kalman Filter (EKF) vs Unscented Kalman Filter (UKF)**.
+
+## License
+This project is licensed under the MIT License.
+
