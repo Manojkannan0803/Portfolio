@@ -1,7 +1,69 @@
+# Probabilistic Robot Localization Simulation
 
+## Overview
+This project implements a probabilistic localization simulation for a robot navigating a grid environment. The robot utilizes a color-based sensor to estimate its position while dealing with sensor noise and motion uncertainty. The simulation visualizes the robot's belief updates over time, demonstrating concepts from probabilistic robotics and Bayesian localization.
 
-2D_Histogram_Filter
-Refer: 2D_Histogram_filter_Python/Project_description.txt for the detailed description about 2D histogram filter implemented in python
+## Features
+- **Grid-based Environment**: The simulation operates on a customizable grid where each cell has a distinct color.
+- **Belief Representation**: A probability distribution represents the robot's belief about its position.
+- **Sensing Model**: The robot updates its beliefs based on color observations, accounting for sensor inaccuracies.
+- **Motion Model**: Movement updates beliefs by distributing probability mass across possible new positions.
+- **Randomized Movement**: The robot moves randomly within the grid, simulating real-world motion noise.
+- **Visualization**: Belief distributions are visualized using `matplotlib`, with marker sizes representing confidence levels.
+
+## Implementation Details
+- **Localization Algorithm**: Uses a histogram filter approach where the robot updates its belief grid based on sensory input and motion.
+- **Grid Definition**: A user-defined grid where each cell's color aids in localization.
+- **Sensor Model**: The robot detects the cell's color with a probability of correct sensing (`p_hit`), introducing measurement uncertainty.
+- **Motion Model**: The robot moves randomly, and its belief distribution is updated via a blurring function to model motion noise.
+
+## Dependencies
+- Python 3.x
+- Matplotlib
+- NumPy
+
+## Usage
+### Running the Simulation
+```python
+from simulation import Simulation
+
+# Define a grid
+grid = [
+    ['r', 'g', 'g', 'g', 'r'],
+    ['g', 'g', 'r', 'g', 'r'],
+    ['g', 'r', 'g', 'g', 'g'],
+    ['r', 'r', 'g', 'r', 'g'],
+    ['r', 'g', 'r', 'g', 'r'],
+]
+
+# Initialize simulation
+simulation = Simulation(grid, blur=0.05, p_hit=200.0)
+
+# Visualize initial beliefs
+simulation.show_beliefs()
+
+# Run the simulation for 5 steps
+simulation.run(5)
+
+# Visualize updated beliefs
+simulation.show_beliefs()
+```
+
+## Potential Applications
+- Autonomous robot localization
+- Bayesian filtering techniques
+- Sensor fusion and probabilistic modeling
+- AI and robotics education
+
+## Future Enhancements
+- Implement a configurable movement policy instead of random movement.
+- Introduce multiple sensors for improved accuracy.
+- Enhance visualization for better clarity.
+- Add real-world mapping integration.
+
+## License
+This project is licensed under the MIT License.
+
 
 Kalman_filter implementation
 Refer: Kalman_filter/Project_description.txt for the detailed description about Kalman_filter implemented in python
