@@ -44,3 +44,52 @@ To verify the implementation, run: python test.py
 
 Running the planner on map_40 with start node 5 and goal node 34 should produce: great! Your code works for these inputs!
 
+Traffic Light Classifier
+
+Overview
+This project implements a traffic light classifier using computer vision techniques. The classifier processes traffic light images, standardizes them, and applies HSV color space transformations to accurately distinguish between red, yellow, and green signals. The model is trained and tested using an image dataset of traffic lights.
+
+Features
+1. Loads and preprocesses traffic light images from a dataset.
+2. Standardizes image dimensions for consistent processing.
+3. Converts RGB images to HSV for better color-based classification.
+4. Implements a classification algorithm to identify traffic light colors.
+5. Evaluates performance and identifies misclassified images.
+6. Provides visualization for analysis of misclassified images.
+
+Project Structure
+Traffic_light_classifier/
+│── traffic_light_images/
+│   ├── training/  # Training dataset
+│   ├── test/  # Test dataset
+│── helpers.py  # Helper functions for dataset loading and processing
+│── helper_functions.py  # Standardization and classification functions
+│── test_functions.py  # Functions for evaluating classification accuracy
+│── classifier.py  # Main script to train and test the classifier
+
+Dependencies
+Ensure you have the following Python libraries installed: pip install opencv-python numpy matplotlib
+
+Usage
+1. Clone the repository:
+   git clone https://github.com/yourusername/traffic-light-classifier.git
+   cd traffic-light-classifier
+2. Run the classifier script: python classifier.py
+3. The program will:
+     Load and preprocess training images.
+     Standardize image dimensions.
+     Convert images to HSV color space.
+     Train and evaluate the classifier.
+     Display classification accuracy and misclassified images.
+
+Results
+1. The classifier evaluates test images and calculates accuracy.
+2. Misclassified images are visualized for further analysis
+
+Future Improvements
+1. Implement a deep learning model for improved accuracy.
+2. Expand dataset for better generalization.
+3. Integrate real-time traffic light detection using video feeds.
+
+License
+This project is open-source and available under the MIT License.
