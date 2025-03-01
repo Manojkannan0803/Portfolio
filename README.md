@@ -66,7 +66,49 @@ This project is licensed under the MIT License.
 
 
 Kalman_filter implementation
-Refer: Kalman_filter/Project_description.txt for the detailed description about Kalman_filter implemented in python
+Overview:
+This project implements an object tracking system using data generated for a vehicle's motion, which includes position, velocity, and acceleration over time. The system also incorporates Lidar sensor measurements to track the object's distance while reducing noise using a Kalman filter.
+
+Key Features:
+Data Generation: Simulates vehicle dynamics, including initial position, velocity, deceleration, idle time, and reverse motion, using a data generation script.
+Lidar Measurements: Simulates Lidar measurements that are subject to Gaussian noise, and compares them to ground truth data.
+Kalman Filter Implementation: A Kalman filter is applied to smooth out noisy Lidar measurements and provide more accurate distance and velocity estimates over time.
+Data Visualization: The project visualizes key metrics such as distance, velocity, and acceleration over time, comparing ground truth, Lidar measurements, and Kalman filter estimates.
+Modules:
+Data Generation: Generates synthetic data for time, distance, velocity, and acceleration of a tracked object. These are used to simulate the dynamics of a vehicle.
+Kalman Filter: Implements the Kalman filter to estimate the object's position and velocity by combining the noisy Lidar data with a motion model.
+Visualization: Uses matplotlib to create plots comparing the ground truth, Lidar measurements, and Kalman filter outputs, providing insights into the performance of the filter.
+Requirements:
+pandas
+matplotlib
+numpy (optional but helpful for matrix operations)
+data_generator (custom module for generating data)
+matrix (custom matrix operations library)
+How It Works:
+Data Generation: The data_generator module generates time series data for the vehicle’s position, velocity, and acceleration, including periods of idling and reverse motion.
+Kalman Filtering:
+The filter predicts the object's state (position and velocity) during the time intervals between Lidar measurements.
+When a new Lidar measurement is received, the Kalman filter corrects the state estimate, reducing noise and improving accuracy.
+Visualization: The results are visualized in real-time, showing how the Kalman filter reduces the noise in the Lidar measurements and provides a more accurate trajectory for the object.
+Example Output:
+The project produces multiple visualizations, including:
+
+Object Distance over Time: Displays how the object's distance changes over time.
+Object Velocity over Time: Displays how the velocity changes over time.
+Object Acceleration over Time: Visualizes acceleration during motion, deceleration, idling, and reverse motion.
+Lidar vs. Ground Truth: Compares the noisy Lidar measurements with the ground truth data.
+Kalman Filter vs. Lidar: Compares the Kalman filter’s estimates with both the Lidar data and ground truth.
+Usage:
+To run the project:
+
+Install required libraries (pandas, matplotlib).
+Ensure custom modules data_generator.py and matrix.py are available in the working directory.
+Execute the Python script to generate data, apply the Kalman filter, and visualize the results.
+Contributing:
+Feel free to fork the repository, open issues, and submit pull requests. Contributions to improve the data generation, Kalman filter, or visualization are welcome.
+
+License:
+This project is licensed under the MIT License.
 
 Technologies Used:
 Python 3.x
