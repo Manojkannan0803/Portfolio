@@ -1,0 +1,30 @@
+classdef Demo_setpoint_adjuster < matlab.System
+
+    properties
+        config = Demo.getconfig; 
+    end
+
+    methods
+        function obj = Demo_setpoint_adjuster()
+            % Optionally initialize config/state here if needed
+        end
+    end
+
+    methods(Access = protected)
+        function [adjusted_setpoint] = stepImpl(obj, setpoint)
+            % Default passthrough implementation
+
+            % Assign outputs
+            adjusted_setpoint = setpoint * obj.config.gain;
+
+            % TODO implement
+        end
+
+        function num = getNumInputsImpl(~), num = 1; end
+        function varargout = getNumOutputsImpl(~), varargout = {1, []}; end
+        function varargout = getOutputSizeImpl(~), varargout = {1}; end
+        function varargout = getOutputDataTypeImpl(~), varargout = {'double'}; end
+        function varargout = isOutputComplexImpl(~), varargout = {false}; end
+        function varargout = isOutputFixedSizeImpl(~), varargout = {true}; end
+    end
+end
