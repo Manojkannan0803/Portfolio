@@ -1,13 +1,11 @@
-
-Demo_model_ConstP
 /*
  * File: rtwtypes.h
  *
- * Code generated for Simulink model 'Demo_model'.
+ * Code generated for Simulink model 'Setpoint_Adjuster'.
  *
- * Model version                  : 1.4
+ * Model version                  : 1.6
  * Simulink Coder version         : 24.2 (R2024b) 21-Jun-2024
- * C/C++ source code generated on : Tue Aug 26 11:53:32 2025
+ * C/C++ source code generated on : Sat Jan 31 14:56:25 2026
  *
  * Target selection: ert.tlc
  * Embedded hardware selection: Intel->x86-64 (Windows64)
@@ -69,6 +67,90 @@ typedef char char_T;
 typedef unsigned char uchar_T;
 typedef char_T byte_T;
 
+/*===========================================================================*
+ * Complex number type definitions                                           *
+ *===========================================================================*/
+#define CREAL_T
+
+typedef struct {
+  real32_T re;
+  real32_T im;
+} creal32_T;
+
+typedef struct {
+  real64_T re;
+  real64_T im;
+} creal64_T;
+
+typedef struct {
+  real_T re;
+  real_T im;
+} creal_T;
+
+#define CINT8_T
+
+typedef struct {
+  int8_T re;
+  int8_T im;
+} cint8_T;
+
+#define CUINT8_T
+
+typedef struct {
+  uint8_T re;
+  uint8_T im;
+} cuint8_T;
+
+#define CINT16_T
+
+typedef struct {
+  int16_T re;
+  int16_T im;
+} cint16_T;
+
+#define CUINT16_T
+
+typedef struct {
+  uint16_T re;
+  uint16_T im;
+} cuint16_T;
+
+#define CINT32_T
+
+typedef struct {
+  int32_T re;
+  int32_T im;
+} cint32_T;
+
+#define CUINT32_T
+
+typedef struct {
+  uint32_T re;
+  uint32_T im;
+} cuint32_T;
+
 /*=======================================================================*
  * Min and Max:                                                          *
-has popup
+ *   int8_T, int16_T, int32_T     - signed 8, 16, or 32 bit integers     *
+ *   uint8_T, uint16_T, uint32_T  - unsigned 8, 16, or 32 bit integers   *
+ *=======================================================================*/
+#define MAX_int8_T                     ((int8_T)(127))
+#define MIN_int8_T                     ((int8_T)(-128))
+#define MAX_uint8_T                    ((uint8_T)(255U))
+#define MAX_int16_T                    ((int16_T)(32767))
+#define MIN_int16_T                    ((int16_T)(-32768))
+#define MAX_uint16_T                   ((uint16_T)(65535U))
+#define MAX_int32_T                    ((int32_T)(2147483647))
+#define MIN_int32_T                    ((int32_T)(-2147483647-1))
+#define MAX_uint32_T                   ((uint32_T)(0xFFFFFFFFU))
+
+/* Block D-Work pointer type */
+typedef void * pointer_T;
+
+#endif                                 /* RTWTYPES_H */
+
+/*
+ * File trailer for generated code.
+ *
+ * [EOF]
+ */
